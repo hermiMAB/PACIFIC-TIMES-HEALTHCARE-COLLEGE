@@ -1,124 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacific Times Healthcare College</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pacific Times Healthcare College</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    .top-bar {
+      background-color: #004080;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .top-bar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .top-bar i {
+      margin-right: 5px;
+    }
+
+    .main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      padding: 10px 20px;
+      border-bottom: 3px solid #004080;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .main-nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .main-nav a {
+      text-decoration: none;
+      color: #004080;
+      font-weight: bold;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #0066cc, #33adff);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .cta-button {
+      background: white;
+      color: #0066cc;
+      padding: 10px 20px;
+      margin: 10px;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      background: #e6f0ff;
+    }
+
+    .info-section {
+      padding: 40px 20px;
+      margin: 0 auto;
+      max-width: 900px;
+    }
+
+    .info-section:nth-child(even) {
+      background-color: #f0f8ff;
+    }
+
+    .info-section h2 {
+      color: #004080;
+      font-size: 1.8rem;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      line-height: 1.6;
+    }
+
+    /* About Us Section - Grid Layout */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .about-grid > div {
+      background: #e6f0ff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: inset 0 0 10px #b3d1ff;
+    }
+
+    .about-grid h3 {
+      color: #004080;
+      margin-bottom: 12px;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .about-grid p,
+    .about-grid ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #333;
+    }
+
+    .about-grid ul {
+      list-style-type: disc;
+    }
+
+    /* Highlighted icon with color */
+    .icon-circle {
+      background: #004080;
+      color: white;
+      border-radius: 50%;
+      padding: 6px 10px;
+      font-size: 1.2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-nav ul {
+        flex-direction: column;
+        display: none;
+        background: white;
+        padding: 10px;
+      }
+
+      .main-nav ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: #004080;
+        cursor: pointer;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Top Blue Contact Bar -->
-    <div class="top-bar">
-        <div class="top-left">
-            <span><i class="fas fa-envelope"></i> <a href="mailto:info@pthcedu.com">info@pthcedu.com</a></span>
-            <span><i class="fas fa-phone"></i> <a href="tel:+19517341601">(951) 734-1601</a></span>
-        </div>
-        <div class="social-icons">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-        </div>
+  <!-- Top Blue Contact Bar -->
+  <div class="top-bar">
+    <div class="top-left">
+      <span><i class="fas fa-envelope"></i> <a href="mailto:info@pthcedu.com">info@pthcedu.com</a></span>
+      <span><i class="fas fa-phone"></i> <a href="tel:+19517341601">(951) 734-1601</a></span>
     </div>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
 
-    <!-- Main Header -->
-    <header class="main-header">
-        <div class="header-left">
-            <img src="images/pthc-logo.png" alt="PTHC Logo" class="logo">
+  <!-- Main Header -->
+  <header class="main-header">
+    <div class="header-left">
+      <img src="images/pthc logo.png" alt="PTHC Logo" class="logo">
+    </div>
+    <nav class="main-nav">
+      <button class="menu-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero" style="background: url('images/background image 2.jpg') center/cover no-repeat;">
+    <div class="hero-content">
+      <h1>📣 Now Enrolling for Nurse Assistant Training Program (NATP)</h1>
+      <a href="#courses" class="cta-button">🎓 Enroll Now</a>
+      <a href="#contact" class="cta-button">📍 Schedule a Visit</a>
+    </div>
+  </section>
+
+  <section id="about" class="info-section">
+    <h2>🏥 About Pacific Times Healthcare College</h2>
+    <div class="card">
+      <div class="about-grid">
+        <div>
+          <h3><span class="icon-circle"><i class="fas fa-bullseye"></i></span> Mission</h3>
+          <p>To deliver high-quality healthcare training that prepares students for real-world medical careers with confidence and compassion. We provide a one-stop shop for healthcare knowledge and skills to help you achieve your personal and professional goals.</p>
         </div>
-        <nav class="main-nav">
-            <button class="menu-toggle" aria-label="Toggle Menu"><i class="fas fa-bars"></i></button>
-            <ul class="nav-list">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Now Enrolling for NATP</h1>
-            <a href="#courses" class="cta-button">Enroll Now</a>
-            <a href="#contact" class="cta-button">Schedule a Visit</a>
+        <div>
+          <h3><span class="icon-circle"><i class="fas fa-book-medical"></i></span> Programs</h3>
+          <ul>
+            <li>New job seekers entering healthcare</li>
+            <li>Existing healthcare workers renewing certifications</li>
+            <li>Employees advancing careers</li>
+            <li>Refresher seminars for skill enhancement</li>
+            <li>Job seekers and graduates preparing for interviews</li>
+            <li>Board exam review seminars</li>
+          </ul>
         </div>
-    </section>
-
-    <section id="courses" class="info-section">
-        <h2>👩‍⚕️ Nurse Assistant Training Program (NATP)</h2>
-        <div class="card">
-            <p>Launch your healthcare career with our state-approved NATP course designed to equip you with the knowledge and skills to become a Certified Nurse Assistant (CNA).</p>
-            <h3>📅 Study Options:</h3>
-            <ul>
-                <li>Weekday Classes: Monday – Thursday</li>
-                <li>Weekend Classes: Friday and Saturday</li>
-            </ul>
+        <div>
+          <h3><span class="icon-circle"><i class="fas fa-chalkboard-teacher"></i></span> Experienced Faculty</h3>
+          <p>Our professional instructors bring years of healthcare and teaching experience, focusing on hands-on training and real-world application to ensure your success.</p>
         </div>
-    </section>
-
-    <section id="classes" class="info-section">
-        <h2>🗓 Current Sessions</h2>
-        <div class="card">
-            <ul>
-                <li>Weekday Class (1439): June 16 – July 10, 2025</li>
-                <li>Weekend Class (1440): June 27 – August 16, 2025</li>
-            </ul>
+        <div>
+          <h3><span class="icon-circle"><i class="fas fa-heart"></i></span> Community Commitment</h3>
+          <p>We proudly serve the Inland Empire and surrounding communities by making healthcare education accessible and relevant to local needs.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="qualifications" class="info-section">
-        <h2>✅ Entry Requirements</h2>
-        <div class="card">
-            <p>Applicants must meet one of the following:</p>
-            <ul>
-                <li>High school diploma or GED (evidence required)</li>
-                <li>Pass the Combined English Language Skills Assessment (ATB Test)</li>
-                <li>Completion of 6 credit hours or 225 clock hours toward a recognized degree or certificate</li>
-            </ul>
-        </div>
-    </section>
+  <section id="courses" class="info-section">
+    <h2>👩‍⚕️ Nurse Assistant Training Program (NATP)</h2>
+    <div class="card">
+      <p>🚀 Launch your healthcare career with our state-approved NATP course designed to equip you with the knowledge and skills to become a Certified Nurse Assistant (CNA).</p>
+      <h3>📅 Study Options:</h3>
+      <ul>
+        <li>Weekday Classes: Monday – Thursday</li>
+        <li>Weekend Classes: Friday and Saturday</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="management" class="info-section">
-        <h2>🏫 College Leadership</h2>
-        <div class="card">
-            <p>Julie Kimithi – Director</p>
-            <p>Steve Musee – President & Administrator</p>
-        </div>
-    </section>
+  <section id="classes" class="info-section">
+    <h2>🗓 Current Sessions</h2>
+    <div class="card">
+      <ul>
+        <li>Weekday Class (1439): June 16 – July 10, 2025</li>
+        <li>Weekend Class (1440): June 27 – August 16, 2025</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="contact" class="info-section">
-        <h2>Contact Us</h2>
-        <div class="card contact-card">
-            <p><strong>📍 Address:</strong> 90 W Grand Blvd #107, Corona, CA, 92882</p>
-            <p><strong>📞 Phone:</strong> <a href="tel:+19517341601">(951) 734-1601</a></p>
-            <p><strong>✉️ Email:</strong> <a href="mailto:info@pthcedu.com">info@pthcedu.com</a></p>
-            <p><strong>🔗 Website:</strong> <a href="http://www.pthcedu.com" target="_blank">www.pthcedu.com</a></p>
-        </div>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
+  <section id="terms" class="info-section">
+    <h2>📘 Academic Term Dates</h2>
+    <div class="card">
+      <ul>
+        <li><strong>Term One:</strong> May 5, 2025 – August 24, 2025</li>
+        <li><strong>Term Two:</strong> September 4, 2025 – December 14, 2025</li>
+        <li><strong>Term Three:</strong> January 8, 2026 – April 18, 2026</li>
+        <li><strong>Term Four:</strong> April 29, 2026 – July 25, 2026</li>
+      </ul>
+    </div>
+  </section>
 
+  <section id="qualifications" class="info-section">
+    <h2>✅ Entry Requirements</h2>
+    <div class="card">
+      <p>Applicants must meet one of the following:</p>
+      <ul>
+        <li>High school diploma or GED (evidence required)</li>
+        <li>Pass the Combined English Language Skills Assessment (ATB Test)</li>
+        <li>Completion of 6 credit hours or 225 clock hours toward a recognized degree or certificate</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="management" class="info-section">
+    <h2>🏫 College Leadership</h2>
+    <div class="card">
+      <p><strong>Julie Kimithi</strong> – Director</p>
+      <p><strong>Steve Musee</strong> – President & Administrator</p>
+    </div>
+  </section>
+
+  <section id="contact" class="info-section">
+    <h2>📞 Contact Us</h2>
+    <div class="card contact-card">
+      <p><strong>📍 Address:</strong> 90 W Grand Blvd #107, Corona, CA, 92882</p>
+      <p><strong>📞 Phone:</strong> <a href="tel:+19517341601">(951) 734-1601</a></p>
+      <p><strong>✉️ Email:</strong> <a href="mailto:info@pthcedu.com">info@pthcedu.com</a></p>
+      <p><strong>🔗 Website:</strong> <a href="http://www.pthcedu.com" target="_blank" rel="noopener noreferrer">www.pthcedu.com</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Pacific Times Healthcare College. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle mobile menu
+    document.querySelector('.menu-toggle').addEventListener('click', function () {
+      document.querySelector('.nav-list').classList.toggle('active');
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        // Close menu on mobile after clicking
+        document.querySelector('.nav-list').classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
     <footer>
         <p>© 2025 Pacific Times Healthcare College. All rights reserved.</p>
     </footer>
-
+    
     <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            this.reset();
+        // Toggle mobile menu
+        document.querySelector('.menu-toggle').addEventListener('click', function () {
+        document.querySelector('.nav-list').classList.toggle('active');
         });
-
-        document.querySelector('.menu-toggle').addEventListener('click', function() {
-            document.querySelector('.nav-list').classList.toggle('active');
+    
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+            });
+            // Close menu on mobile after clicking
+            document.querySelector('.nav-list').classList.remove('active');
+        });
         });
     </script>
-</body>
-</html>
